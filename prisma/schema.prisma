@@ -49,6 +49,8 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+
+  posts Post[]
 }
 
 model VerificationToken {
@@ -57,4 +59,21 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Post {
+  id    String @id @default(cuid())
+  slug  String @unique
+  title String
+
+  keywords         String
+  shortDescription String
+
+  content String
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
