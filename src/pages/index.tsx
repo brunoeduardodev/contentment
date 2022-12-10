@@ -1,6 +1,6 @@
 import type { PageWithLayout } from "../layouts";
-import { AuthorizedLayout } from "../layouts";
 import Head from "next/head";
+import { DashboardLayout } from "../layouts/Dashboard";
 
 const Home: PageWithLayout = () => {
   return (
@@ -17,6 +17,6 @@ const Home: PageWithLayout = () => {
   );
 };
 
-Home.Layout = AuthorizedLayout;
+Home.Layout = DashboardLayout;
 
 export default Home;
