@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { FiChevronLeft, FiHome } from "react-icons/fi";
-import { IconButton } from "../base/IconButton";
+import { FiChevronLeft, FiHome, FiPaperclip } from "react-icons/fi";
+import { IconButton } from "../base";
 
 const items = [
   {
@@ -11,7 +11,7 @@ const items = [
   {
     name: "Posts",
     href: "/posts",
-    Icon: FiHome,
+    Icon: FiPaperclip,
   },
 ];
 
