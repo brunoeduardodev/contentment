@@ -12,7 +12,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <div className="flex min-h-screen w-full flex-col bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+        <Component {...pageProps} />
+      </div>
     </SessionProvider>
   );
 };
