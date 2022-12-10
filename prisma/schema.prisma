@@ -61,6 +61,18 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model PostCategory {
+  id   String @id @default(cuid())
+  slug String
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  post   Post?   @relation(fields: [postId], references: [id])
+  postId String?
+}
+
 model Post {
   id    String @id @default(cuid())
   slug  String @unique
@@ -73,6 +85,8 @@ model Post {
 
   author   User   @relation(fields: [authorId], references: [id])
   authorId String
+
+  categories PostCategory[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
