@@ -1,7 +1,8 @@
-import { type NextPage } from "next";
+import type { PageWithLayout } from "../layouts";
+import { AuthorizedLayout } from "../layouts";
 import Head from "next/head";
 
-const Home: NextPage = () => {
+const Home: PageWithLayout = () => {
   return (
     <>
       <Head>
@@ -15,5 +16,7 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+Home.Layout = AuthorizedLayout;
 
 export default Home;

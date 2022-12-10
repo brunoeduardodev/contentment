@@ -8,7 +8,7 @@ export type WithLayout<T> = T & {
 export type PageWithLayout = WithLayout<NextPage>;
 
 export function hasLayout<T>(Component: T): Component is WithLayout<T> {
-  return "layout" in Component;
+  return "Layout" in Component;
 }
 
 export * from "./Authorized";
