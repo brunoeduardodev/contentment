@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FiArrowRight, FiHome } from "react-icons/fi";
+import { FiChevronLeft, FiHome } from "react-icons/fi";
+import { IconButton } from "../base/IconButton";
 
 const items = [
   {
@@ -19,7 +20,7 @@ export const Sidebar = () => {
     <aside className="min-w-[320px] bg-black/20 p-5 pt-8 text-white">
       <div className="mb-8 flex items-center justify-between">
         <h3 className="text-2xl font-bold">Contentment</h3>
-        <FiArrowRight className="h-6 w-6" />
+        <IconButton size="lg" Icon={FiChevronLeft} />
       </div>
 
       <ul className="flex flex-col gap-6 px-1">
