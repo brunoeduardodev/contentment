@@ -6,7 +6,7 @@ export const AuthorizedLayout = ({ children }: PropsWithChildren) => {
 
   if (!sessionData) {
     return (
-      <main className="flex h-full w-full flex-col items-center justify-center">
+      <main className="flex h-full min-h-screen w-full flex-col items-center justify-center gap-4 text-white">
         <p className="text-2xl font-bold">Heey, you need to be signed in!</p>
 
         <button
