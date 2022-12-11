@@ -7,7 +7,10 @@ export const postsRouter = router({
     .input(getPostsSchema)
     .query(
       async ({ input: { authorId, skip, take }, ctx: { prisma, session } }) => {
-        if (session.user.role === "User" && !authorId) {
+        if (
+          session.user.role !== "User" &&
+          (!authorId || authorId !== session.user.id)
+        ) {
           throw new TRPCError({
             code: "FORBIDDEN",
           });
