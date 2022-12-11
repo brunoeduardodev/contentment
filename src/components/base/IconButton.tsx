@@ -9,7 +9,7 @@ const buttonStyles = cva(
     variants: {
       size: {
         sm: "h-8 w-8",
-        md: "h-10 w-10",
+        md: "h-12 w-12",
         lg: "h-12 w-12",
       },
     },
@@ -23,7 +23,7 @@ const iconStyles = cva("text-white", {
   variants: {
     size: {
       sm: "h-4 w-4",
-      md: "h-5 w-5",
+      md: "h-6 w-6",
       lg: "h-7 w-7",
     },
   },
