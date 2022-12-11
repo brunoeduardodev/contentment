@@ -1,5 +1,6 @@
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
+import Link from "next/link";
 import type { ComponentProps } from "react";
 import type { IconType } from "react-icons";
 
@@ -37,5 +38,26 @@ export const IconButton = ({ size, className, Icon, ...props }: Props) => {
     <button className={buttonStyles({ size }) + ` ${className}`} {...props}>
       <Icon className={iconStyles({ size })} />
     </button>
+  );
+};
+
+type LinkIconButtonProps = { Icon: IconType } & ComponentProps<typeof Link> &
+  VariantProps<typeof buttonStyles>;
+
+export const LinkIconButton = ({
+  size,
+  className,
+  Icon,
+  href,
+  ...props
+}: LinkIconButtonProps) => {
+  return (
+    <Link
+      href={href}
+      className={buttonStyles({ size }) + ` ${className}`}
+      {...props}
+    >
+      <Icon className={iconStyles({ size })} />
+    </Link>
   );
 };

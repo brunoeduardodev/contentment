@@ -5,7 +5,7 @@ import {
   FiHome,
   FiPaperclip,
 } from "react-icons/fi";
-import { IconButton, LinkButton } from "../base";
+import { IconButton, LinkButton, LinkIconButton } from "../base";
 
 const items = [
   {
@@ -47,7 +47,7 @@ export const Sidebar = () => {
             className={`flex ${collapsed && "justify-center"}`}
           >
             {collapsed ? (
-              <IconButton size="md" Icon={item.Icon} />
+              <LinkIconButton href={item.href} size="md" Icon={item.Icon} />
             ) : (
               <LinkButton LeftIcon={item.Icon} size={"md"} href={item.href}>
                 {item.name}
