@@ -41,6 +41,12 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+enum Role {
+  Admin
+  User
+  WaitingForApproval
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -50,6 +56,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
 
+  role  Role   @default(WaitingForApproval)
   posts Post[]
 }
 
