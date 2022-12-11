@@ -69,7 +69,7 @@ model PostCategory {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  post   Post?   @relation(fields: [postId], references: [id])
+  post   Post[]
   postId String?
 }
 
