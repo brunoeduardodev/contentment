@@ -35,6 +35,7 @@ export const Sidebar = () => {
         </h3>
         <IconButton
           size="lg"
+          title={collapsed ? "Expand" : "Collapse"}
           Icon={collapsed ? FiChevronRight : FiChevronLeft}
           onClick={() => setCollapsed(!collapsed)}
         />
@@ -47,7 +48,12 @@ export const Sidebar = () => {
             className={`flex ${collapsed && "justify-center"}`}
           >
             {collapsed ? (
-              <LinkIconButton href={item.href} size="md" Icon={item.Icon} />
+              <LinkIconButton
+                href={item.href}
+                size="md"
+                Icon={item.Icon}
+                title={item.name}
+              />
             ) : (
               <LinkButton LeftIcon={item.Icon} size={"md"} href={item.href}>
                 {item.name}
