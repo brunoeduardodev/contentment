@@ -7,7 +7,7 @@ const PostsPage: PageWithLayout = () => {
     <>
       <PageHeader
         title="Posts"
-        action={{ text: "Add Post", href: "/post/create" }}
+        action={{ text: "Add Post", href: "/posts/create" }}
       />
     </>
   );
