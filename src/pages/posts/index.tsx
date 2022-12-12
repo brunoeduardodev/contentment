@@ -1,3 +1,4 @@
+import { PageHeader } from "../../components/Page/PageHeader";
 import { PageTitle } from "../../components/Page/PageTitle";
 import type { PageWithLayout } from "../../layouts";
 import { DashboardLayout } from "../../layouts/Dashboard";
@@ -5,7 +6,10 @@ import { DashboardLayout } from "../../layouts/Dashboard";
 const PostsPage: PageWithLayout = () => {
   return (
     <>
-      <PageTitle>Posts</PageTitle>
+      <PageHeader
+        title="Posts"
+        action={{ text: "Add Post", href: "/post/create" }}
+      />
     </>
   );
 };
