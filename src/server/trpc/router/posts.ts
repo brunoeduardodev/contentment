@@ -53,7 +53,7 @@ export const postsRouter = router({
           data: {
             title,
             categories: {
-              connect: categoriesSlugs.map((slug) => ({ id: slug })),
+              connect: categoriesSlugs.map((slug) => ({ slug })),
             },
             content,
             keywords: keywords.join(" "),
