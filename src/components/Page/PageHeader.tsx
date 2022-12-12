@@ -17,7 +17,12 @@ export const PageHeader = ({ title, action }: Props) => {
       <PageTitle>{title}</PageTitle>
 
       {action && (
-        <LinkButton LeftIcon={FiPlus} size="md" href={action.href}>
+        <LinkButton
+          LeftIcon={FiPlus}
+          size="sm"
+          href={action.href}
+          color="semitransparent"
+        >
           {action.text}
         </LinkButton>
       )}

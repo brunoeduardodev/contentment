@@ -1,5 +1,4 @@
 import { PageHeader } from "../../components/Page/PageHeader";
-import { PageTitle } from "../../components/Page/PageTitle";
 import type { PageWithLayout } from "../../layouts";
 import { DashboardLayout } from "../../layouts/Dashboard";
 
