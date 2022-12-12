@@ -70,7 +70,7 @@ model VerificationToken {
 
 model PostCategory {
   id   String @id @default(cuid())
-  slug String
+  slug String @unique
   name String
 
   createdAt DateTime @default(now())
