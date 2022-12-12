@@ -1,9 +1,11 @@
-import { FiPlus } from "react-icons/fi";
-import { LinkButton } from "../base";
+import { FiArrowLeft, FiPlus } from "react-icons/fi";
+import { LinkButton, LinkIconButton } from "../base";
 import { PageTitle } from "./PageTitle";
 
 type Props = {
   title: string;
+
+  backTo?: string;
 
   action?: {
     text: string;
@@ -11,10 +13,15 @@ type Props = {
   };
 };
 
-export const PageHeader = ({ title, action }: Props) => {
+export const PageHeader = ({ title, backTo, action }: Props) => {
   return (
     <div className="flex items-center justify-between">
-      <PageTitle>{title}</PageTitle>
+      <div className="flex items-center gap-2">
+        {backTo && (
+          <LinkIconButton size="lg" Icon={FiArrowLeft} href={backTo} />
+        )}
+        <PageTitle>{title}</PageTitle>
+      </div>
 
       {action && (
         <LinkButton
