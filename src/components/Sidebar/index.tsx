@@ -45,7 +45,9 @@ export const Sidebar = () => {
         {items.map((item) => (
           <li
             key={item.name}
-            className={`flex ${collapsed && "justify-center"}`}
+            className={`flex flex-col ${
+              collapsed ? "items-center" : "items-stretch"
+            }`}
           >
             {collapsed ? (
               <LinkIconButton
