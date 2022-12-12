@@ -8,7 +8,9 @@ export const DashboardLayout = ({ children }: PropsWithChildren) => {
       <div className="flex h-full min-h-screen w-full">
         <Sidebar />
 
-        <main className="flex-1 bg-black/10 p-4">{children}</main>
+        <main className="flex flex-1 flex-col gap-4 bg-black/10 p-4 md:gap-6 md:p-6 xl:p-8">
+          {children}
+        </main>
       </div>
     </AuthorizedLayout>
   );
