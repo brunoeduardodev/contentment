@@ -35,14 +35,14 @@ type Props = {
 export const Button = ({ LeftIcon, size, className, children }: Props) => {
   return (
     <button className={`${buttonStyles({ size })} ${className}`}>
-      <LeftIcon className={iconStyles({ size })} />
+      {LeftIcon && <LeftIcon className={iconStyles({ size })} />}
       {children}
     </button>
   );
 };
 
 type LinkButtonProps = {
-  LeftIcon: IconType;
+  LeftIcon?: IconType;
   href: string;
 } & ComponentProps<typeof Link> &
   VariantProps<typeof buttonStyles>;
@@ -56,7 +56,7 @@ export const LinkButton = ({
 }: LinkButtonProps) => {
   return (
     <Link href={href} className={`${buttonStyles({ size })} ${className}`}>
-      <LeftIcon className={iconStyles({ size })} />
+      {LeftIcon && <LeftIcon className={iconStyles({ size })} />}
       {children}
     </Link>
   );
