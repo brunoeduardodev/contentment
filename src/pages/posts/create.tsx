@@ -9,7 +9,20 @@ const CreatePostPage: PageWithLayout = () => {
       <PageHeader title="Create Post" backTo="/posts" />
 
       <form className="flex flex-col gap-6">
-        <TextField name="title" label="Title" placeholder="Awesome Post" />
+        <div className="flex w-full items-center gap-6">
+          <TextField
+            name="title"
+            label="Title"
+            placeholder="Awesome Post"
+            containerClass="flex-[4]"
+          />
+          <TextField
+            name="slug"
+            label="Slug"
+            placeholder="awesome-post"
+            containerClass="flex-[2]"
+          />
+        </div>
       </form>
     </>
   );
