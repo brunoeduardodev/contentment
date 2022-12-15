@@ -11,6 +11,7 @@ type Props = {
   name: string;
   label: string;
   containerClass?: string;
+  error?: string;
 } & ComponentProps<"select">;
 
 export const SelectField = ({
@@ -20,6 +21,7 @@ export const SelectField = ({
   className,
   options,
   defaultOption,
+  error,
   ...props
 }: Props) => {
   return (
@@ -38,12 +40,14 @@ export const SelectField = ({
         {...props}
       >
         {!defaultOption && <option>Select</option>}
-
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
+        {error && (
+          <small className="text-sm font-semibold text-red-500">{error}</small>
+        )}{" "}
       </select>
     </fieldset>
   );
