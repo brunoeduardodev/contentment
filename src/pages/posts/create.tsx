@@ -14,15 +14,33 @@ const CreatePostPage: PageWithLayout = () => {
             name="title"
             label="Title"
             placeholder="Awesome Post"
-            containerClass="flex-[4]"
+            containerClass="flex-[2]"
           />
           <TextField
             name="slug"
             label="Slug"
             placeholder="awesome-post"
-            containerClass="flex-[2]"
+            containerClass="flex-[1]"
           />
         </div>
+
+        <TextField
+          name="shortDescription"
+          placeholder="This is the best post ever written..."
+          label="Short Description"
+        />
+
+        <TextField
+          name="content"
+          placeholder="There once was a post..."
+          label="Content"
+        />
+
+        <TextField
+          name="keywords"
+          placeholder="Post, Awesome, Communication"
+          label="Keywords"
+        />
       </form>
     </>
   );
