@@ -6,6 +6,8 @@ const CreatePostPage: PageWithLayout = () => {
   return (
     <>
       <PageHeader title="Create Post" backTo="/posts" />
+
+      <form className="flex flex-col gap-6"></form>
     </>
   );
 };
