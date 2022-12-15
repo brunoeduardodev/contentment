@@ -1,24 +1,33 @@
 import { SelectField } from "../../components/base/SelectField";
 import { TextField } from "../../components/base/TextField";
 import { PageHeader } from "../../components/Page/PageHeader";
+import { useZodForm } from "../../hooks/useZodForm";
 import type { PageWithLayout } from "../../layouts";
 import { DashboardLayout } from "../../layouts/Dashboard";
+import type { CreatePostInput } from "../../server/schemas/createPost";
+import { createPostSchema } from "../../server/schemas/createPost";
 
 const CreatePostPage: PageWithLayout = () => {
+  const { register, handleSubmit } = useZodForm({ schema: createPostSchema });
+
+  const onSubmit = (data: CreatePostInput) => {
+    console.log({ data });
+  };
+
   return (
     <>
       <PageHeader title="Create Post" backTo="/posts" />
 
-      <form className="flex flex-col gap-6">
+      <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex w-full items-center gap-6">
           <TextField
-            name="title"
             label="Title"
             placeholder="Awesome Post"
             containerClass="flex-[2]"
+            {...register("title")}
           />
           <TextField
-            name="slug"
+            {...register("slug")}
             label="Slug"
             placeholder="awesome-post"
             containerClass="flex-[1]"
@@ -26,7 +35,7 @@ const CreatePostPage: PageWithLayout = () => {
         </div>
 
         <SelectField
-          name="category"
+          {...register("categoriesSlugs")}
           label="Category"
           options={[
             { label: "Community", value: "community" },
@@ -35,19 +44,19 @@ const CreatePostPage: PageWithLayout = () => {
         />
 
         <TextField
-          name="shortDescription"
+          {...register("shortDescription")}
           placeholder="This is the best post ever written..."
           label="Short Description"
         />
 
         <TextField
-          name="content"
+          {...register("content")}
           placeholder="There once was a post..."
           label="Content"
         />
 
         <TextField
-          name="keywords"
+          {...register("keywords")}
           placeholder="Post, Awesome, Communication"
           label="Keywords"
         />
