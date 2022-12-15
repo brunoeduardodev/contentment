@@ -3,6 +3,7 @@ import type { ComponentProps } from "react";
 type Props = {
   label: string;
   containerClass?: string;
+  error?: string;
 } & ComponentProps<"input">;
 
 export const TextField = ({
@@ -10,6 +11,7 @@ export const TextField = ({
   name,
   className,
   containerClass,
+  error,
   ...props
 }: Props) => {
   return (
@@ -26,6 +28,10 @@ export const TextField = ({
         className={`w-full rounded-md bg-black/20 px-4 py-3 text-white outline-white/50 placeholder:text-white/50 focus-visible:outline ${className}`}
         {...props}
       />
+
+      {error && (
+        <small className="text-sm font-semibold text-red-500">{error}</small>
+      )}
     </fieldset>
   );
 };
