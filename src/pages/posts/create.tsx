@@ -1,3 +1,4 @@
+import { SelectField } from "../../components/base/SelectField";
 import { TextField } from "../../components/base/TextField";
 import { PageHeader } from "../../components/Page/PageHeader";
 import type { PageWithLayout } from "../../layouts";
@@ -23,6 +24,15 @@ const CreatePostPage: PageWithLayout = () => {
             containerClass="flex-[1]"
           />
         </div>
+
+        <SelectField
+          name="category"
+          label="Category"
+          options={[
+            { label: "Community", value: "community" },
+            { label: "Coding", value: "coding" },
+          ]}
+        />
 
         <TextField
           name="shortDescription"
