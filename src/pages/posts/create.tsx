@@ -1,5 +1,6 @@
 import { SelectField } from "../../components/base/SelectField";
 import { TextField } from "../../components/base/TextField";
+import { Form } from "../../components/forms";
 import { PageHeader } from "../../components/Page/PageHeader";
 import { useZodForm } from "../../hooks/useZodForm";
 import type { PageWithLayout } from "../../layouts";
@@ -22,7 +23,7 @@ const CreatePostPage: PageWithLayout = () => {
     <>
       <PageHeader title="Create Post" backTo="/posts" />
 
-      <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex w-full items-center gap-6">
           <TextField
             label="Title"
@@ -70,7 +71,7 @@ const CreatePostPage: PageWithLayout = () => {
           label="Keywords"
           error={errors?.keywords?.message}
         />
-      </form>
+      </Form>
     </>
   );
 };
