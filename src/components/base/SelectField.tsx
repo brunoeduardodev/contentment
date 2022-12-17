@@ -26,7 +26,7 @@ export const SelectField = ({
 }: Props) => {
   return (
     <fieldset
-      className={`flex w-full flex-col gap-2 text-white ${
+      className={`flex w-full grow-[1] flex-col gap-2 text-white ${
         containerClass ?? ""
       }`}
     >
@@ -35,7 +35,7 @@ export const SelectField = ({
       </label>
       <select
         id={name}
-        className={`w-full rounded-md bg-black/20 px-4 py-3 text-white outline-white/50 focus-visible:outline ${className}`}
+        className={`w-full min-w-0 rounded-md bg-black/20 px-4 py-3 text-white outline-white/50 focus-visible:outline ${className}`}
         defaultValue={defaultOption?.value}
         {...props}
       >

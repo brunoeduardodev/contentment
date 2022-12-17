@@ -25,7 +25,8 @@ export const TextField = ({
       </label>
       <input
         id={name}
-        className={`w-full rounded-md bg-black/20 px-4 py-3 text-white outline-white/50 placeholder:text-white/50 focus-visible:outline ${className}`}
+        size={1}
+        className={`w-full min-w-0 rounded-md bg-black/20 px-4 py-3 text-white outline-white/50 placeholder:text-white/50 focus-visible:outline ${className}`}
         {...props}
       />
 

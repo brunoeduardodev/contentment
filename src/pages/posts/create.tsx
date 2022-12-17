@@ -1,6 +1,7 @@
 import { SelectField } from "../../components/base/SelectField";
 import { TextField } from "../../components/base/TextField";
-import { Form } from "../../components/forms";
+import { Column, Form } from "../../components/forms";
+import { Row } from "../../components/forms/Row";
 import { PageHeader } from "../../components/Page/PageHeader";
 import { useZodForm } from "../../hooks/useZodForm";
 import type { PageWithLayout } from "../../layouts";
@@ -24,53 +25,66 @@ const CreatePostPage: PageWithLayout = () => {
       <PageHeader title="Create Post" backTo="/posts" />
 
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex w-full items-center gap-6">
+        <Row>
+          <Column grow={2}>
+            <TextField
+              label="Title"
+              placeholder="Awesome Post"
+              {...register("title")}
+              error={errors?.title?.message}
+            />
+          </Column>
+
+          <Column grow={1}>
+            <TextField
+              {...register("slug")}
+              label="Slug"
+              placeholder="awesome-post"
+              error={errors?.slug?.message}
+            />
+          </Column>
+        </Row>
+
+        <Row>
+          <Column grow={2}>
+            <TextField
+              {...register("keywords")}
+              placeholder="Post, Awesome, Communication"
+              label="Keywords"
+              error={errors?.keywords?.message}
+            />
+          </Column>
+
+          <Column grow={1}>
+            <SelectField
+              {...register("categoriesSlugs")}
+              label="Category"
+              options={[
+                { label: "Community", value: "community" },
+                { label: "Coding", value: "coding" },
+              ]}
+              error={errors?.categoriesSlugs?.message}
+            />
+          </Column>
+        </Row>
+
+        <Row>
           <TextField
-            label="Title"
-            placeholder="Awesome Post"
-            containerClass="flex-[2]"
-            {...register("title")}
-            error={errors?.title?.message}
+            {...register("shortDescription")}
+            placeholder="This is the best post ever written..."
+            label="Short Description"
+            error={errors?.shortDescription?.message}
           />
+        </Row>
+
+        <Row>
           <TextField
-            {...register("slug")}
-            label="Slug"
-            placeholder="awesome-post"
-            containerClass="flex-[1]"
-            error={errors?.slug?.message}
+            {...register("content")}
+            placeholder="There once was a post..."
+            label="Content"
+            error={errors?.content?.message}
           />
-        </div>
-
-        <SelectField
-          {...register("categoriesSlugs")}
-          label="Category"
-          options={[
-            { label: "Community", value: "community" },
-            { label: "Coding", value: "coding" },
-          ]}
-          error={errors?.categoriesSlugs?.message}
-        />
-
-        <TextField
-          {...register("shortDescription")}
-          placeholder="This is the best post ever written..."
-          label="Short Description"
-          error={errors?.shortDescription?.message}
-        />
-
-        <TextField
-          {...register("content")}
-          placeholder="There once was a post..."
-          label="Content"
-          error={errors?.content?.message}
-        />
-
-        <TextField
-          {...register("keywords")}
-          placeholder="Post, Awesome, Communication"
-          label="Keywords"
-          error={errors?.keywords?.message}
-        />
+        </Row>
       </Form>
     </>
   );
