@@ -1,3 +1,9 @@
-import { router } from "../trpc";
+import { publicProcedure, router } from "../trpc";
 
-export const categoriesRouter = router({});
+export const categoriesRouter = router({
+  index: publicProcedure.query(({ ctx: { prisma } }) => {
+    return prisma.postCategory.findMany({
+      take: 50,
+    });
+  }),
+});
