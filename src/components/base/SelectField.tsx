@@ -26,7 +26,7 @@ export const SelectField = ({
 }: Props) => {
   return (
     <fieldset
-      className={`flex w-full grow-[1] flex-col gap-2 text-white ${
+      className={`flex w-full flex-col gap-2 text-white ${
         containerClass ?? ""
       }`}
     >

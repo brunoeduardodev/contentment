@@ -5,11 +5,11 @@ type Props = {
 };
 
 const growStyles = [
-  "grow-[1]",
-  "grow-[2]",
-  "grow-[3]",
-  "grow-[4]",
-  "grow-[5]",
+  "flex-[1]",
+  "flex-[2]",
+  "flex-[3]",
+  "flex-[4]",
+  "flex-[5]",
 ] as const;
 
 export const Column = ({ children, grow = 1 }: PropsWithChildren<Props>) => {
